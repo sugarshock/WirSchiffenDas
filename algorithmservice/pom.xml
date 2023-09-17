@@ -53,6 +53,11 @@
             <artifactId>spring-boot-autoconfigure</artifactId>
             <version>3.1.3</version>
         </dependency>
+        <dependency>
+            <groupId>de.wirschiffendas</groupId>
+            <artifactId>shared_classes</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
