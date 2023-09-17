@@ -1,5 +1,6 @@
 package de.wirschiffendas.algorithmservice.kafka;
 
+import de.wirschiffendas.shared_classes.kafka.EquipJobUpdateMessage;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;

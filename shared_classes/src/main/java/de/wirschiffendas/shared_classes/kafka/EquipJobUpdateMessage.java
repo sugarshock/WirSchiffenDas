@@ -3,9 +3,18 @@ package de.wirschiffendas.shared_classes.kafka;
 
 import java.util.UUID;
 import de.wirschiffendas.shared_classes.data.JobStatus;
+import lombok.Getter;
+import lombok.Setter;
+
 public class EquipJobUpdateMessage {
+    @Getter
+    @Setter
     public UUID analyzerJobId;
+    @Getter
+    @Setter
     public int equipJobIndex;
+    @Getter
+    @Setter
     public JobStatus statusUpdate;
 
     public EquipJobUpdateMessage(){}
@@ -15,4 +24,5 @@ public class EquipJobUpdateMessage {
         this.equipJobIndex = equipJobIndex;
         this.statusUpdate = statusUpdate;
     }
+
 }

@@ -1,6 +1,8 @@
 package de.wirschiffendas.shared_classes.data.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.UUID;
 
@@ -9,22 +11,15 @@ public abstract class AbstractEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Getter
+    @Setter
     private UUID id;
 
     @Version
+    @Getter
+    @Setter
     private int version;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
-
-    public int getVersion() {
-        return version;
-    }
 
     @Override
     public int hashCode() {

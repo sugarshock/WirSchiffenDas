@@ -1,15 +1,14 @@
 package de.wirschiffendas.algorithmservice.controller;
 
-import de.wirschiffendas.algorithmservice.data.*;
-import de.wirschiffendas.algorithmservice.data.entity.*;
-import de.wirschiffendas.algorithmservice.kafka.EquipJobUpdateMessage;
+import de.wirschiffendas.shared_classes.data.*;
+import de.wirschiffendas.shared_classes.data.entity.*;
+import de.wirschiffendas.shared_classes.kafka.EquipJobUpdateMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.messaging.MessageDeliveryException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
@@ -38,7 +37,8 @@ public class AlgorithmController {
             throw new RuntimeException(e);
         }
 
-        myJobs.forEach(job -> updateStatusAndSendMessage(analyzerJob, job, getRandomResult()));
+        myJobs.forEach(job -> {updateStatusAndSendMessage(analyzerJob, job, getRandomResult());
+            System.out.println("My job: " + job.getEquipType().toString());});
 
     }
 

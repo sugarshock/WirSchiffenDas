@@ -1,6 +1,6 @@
 package de.wirschiffendas.algorithmservice.kafka;
 
-import de.wirschiffendas.algorithmservice.data.entity.AnalyzerJob;
+import de.wirschiffendas.shared_classes.data.entity.AnalyzerJob;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,7 +22,8 @@ public class KafkaConsumerConfig {
     @Value(value = "${spring.kafka.bootstrap-server}")
     private String bootstrapAddress;
 
-    private String groupId = "1";
+    @Value(value = "${spring.kafka.group-id}")
+    private String groupId;
 
     @Bean
     public ConsumerFactory<String, AnalyzerJob> analyzerJobConsumerFactory() {

@@ -11,6 +11,7 @@ public class EngineConfiguration extends AbstractEntity{
     @Getter @Setter
     private String name = "New Ship Configuration";
     @Getter
+    @Setter
     private HashMap<OptEquipType, String> OptionalEquipment = new HashMap<>();
 
 }

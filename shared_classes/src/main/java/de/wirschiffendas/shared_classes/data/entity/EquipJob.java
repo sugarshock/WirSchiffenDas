@@ -5,7 +5,7 @@ import lombok.Setter;
 import de.wirschiffendas.shared_classes.data.*;
 
 public class EquipJob extends AbstractEntity{
-    @Getter
+    @Getter @Setter
     private EngineConfiguration.OptEquipType equipType;
     @Getter @Setter
     private JobStatus status;
@@ -14,5 +14,10 @@ public class EquipJob extends AbstractEntity{
     {
         this.equipType = equipType;
         status = JobStatus.NOT_STARTED;
+    }
+
+    public EquipJob()
+    {
+        
     }
 }
