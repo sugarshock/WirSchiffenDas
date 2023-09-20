@@ -1,0 +1,13 @@
+Smell: Hardcoded Endpoint
+Solution: Business Services sprechen nicht direkt miteinander. Verbindung zu KAfka wird über eine einzige Bootstrap-IP aufgebaut, welche beim Deployment durch Docker-compose injiziert wird.
+
+Smell: (Bad) Isolation of Failures
+Solution: Durch die asynchrone Kommunikation über Subscriber-Modell, hängen Komponenten nur von Kafka ab. Dem Ausfall von Kafka kann mittels Redundanz entgegen gewirkt werden.
+
+Anti-Pattern: Shared Libraries
+Problem! JsonDeserializer von Spring-Kafka fordert die exakt selbe Klasse, die serialisiert wurde.
+Mögl. Lösung: 
+     * Custom Object-Mappers von einem Bounded Context zum anderen -> viel boilerplate!
+     * Framework/Technologiewechsel -> ggf. weniger standartisierte Lösungen
+Realistisch: AnalyzerService und AlgorithmService teilen sich eine Menge Third-Party-Dependences (Spring, usw.).
+Was spricht also gegen eine geteilte interne Dependency?
